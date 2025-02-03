@@ -24,7 +24,7 @@ PUT http://localhost:3000/board/3
 content-type: application/json
 
 {
-    "title": "게시글 수정"
+    "title":"d"
 }
 
 ###
