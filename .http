@@ -13,6 +13,7 @@ POST http://localhost:3000/board
 content-type: application/json
 
 {
+    "userId": 1,
     "title": "게시글 작성",
     "content": "게시글 작성 테스트"
 }

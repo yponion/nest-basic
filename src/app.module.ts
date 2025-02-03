@@ -21,6 +21,7 @@ import { ConfigService } from "@nestjs/config";
         database: configService.get<string>("DB_DATABASE"),
         entities: [__dirname + "/**/*.entity.{ts,js}"],
         synchronize: false,
+        logging: true,
       }),
     }),
     BoardModule,
