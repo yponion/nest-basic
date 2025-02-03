@@ -3,9 +3,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { User } from "./user.entity";
 
 @Entity() // 테이블 명도 재설정 가능
 export class Board {
@@ -31,4 +34,9 @@ export class Board {
   @ApiProperty({ description: "생성일" })
   @CreateDateColumn()
   createdAt: Date;
+
+  @ApiProperty({ description: "유저정보" })
+  @ManyToOne(() => User)
+  @JoinColumn({ name: "userId" }) // 실제 테이블에 컬럼명이 다르면 이렇게 해줘야함
+  user: User;
 }
