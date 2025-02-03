@@ -53,7 +53,7 @@ POST http://localhost:3000/user
 content-type: application/json
 
 {
-    "username":"user01ID",
-    "password":"user01PW",
-    "name":"user01"
+    "username":"user02ID",
+    "password":"user02PW",
+    "name":"user02"
 }
