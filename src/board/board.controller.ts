@@ -26,7 +26,6 @@ export class BoardController {
 
   @Get(":id")
   find(@Param("id", ParseIntPipe) id: number) {
-    console.log(typeof id);
     return this.boardService.find(id);
   }
 
