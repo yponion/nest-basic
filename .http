@@ -8,4 +8,26 @@ GET http://localhost:3000/board/1
 
 ###
 
-#
+# 게시글 쓰기
+POST http://localhost:3000/board
+content-type: application/json
+
+{
+    "title": "게시글 작성",
+    "content": "게시글 작성 테스트"
+}
+
+###
+
+# 게시글 수정
+PUT http://localhost:3000/board/3
+content-type: application/json
+
+{
+    "title": "게시글 수정"
+}
+
+###
+
+# 게시글 삭제
+DELETE http://localhost:3000/board/3

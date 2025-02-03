@@ -4,17 +4,17 @@ import { Injectable } from "@nestjs/common";
 export class BoardService {
   private boards = [
     {
-      id: "1",
+      id: 1,
       title: "hello world",
       content: "Content 1",
     },
     {
-      id: "2",
+      id: 2,
       title: "hello world 2",
       content: "Content 2",
     },
     {
-      id: "3",
+      id: 3,
       title: "hello world 3",
       content: "Content 3",
     },
@@ -24,8 +24,44 @@ export class BoardService {
     return this.boards;
   }
 
-  find(id: string) {
-    const index = this.boards.findIndex((board) => board.id === id);
+  find(id: number) {
+    const index = this.getBoardId(id);
     return this.boards[index];
+  }
+
+  create(data) {
+    const newBoard = { id: this.getNextId(), ...data };
+    this.boards.push(newBoard);
+    return newBoard;
+  }
+
+  update(id: number, data) {
+    const index = this.getBoardId(id);
+    if (index > -1) {
+      this.boards[index] = {
+        ...this.boards[index],
+        ...data,
+      };
+      return this.boards[index];
+    }
+    return null;
+  }
+
+  delete(id: number) {
+    const index = this.getBoardId(id);
+    if (id > -1) {
+      const deleteBoard = this.boards[index];
+      this.boards.splice(index, 1);
+      return deleteBoard;
+    }
+    return null;
+  }
+
+  getBoardId(id: number) {
+    return this.boards.findIndex((board) => board.id === id);
+  }
+
+  getNextId() {
+    return this.boards.sort((a, b) => b.id - a.id)[0].id + 1;
   }
 }

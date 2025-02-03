@@ -20,21 +20,22 @@ export class BoardController {
 
   @Get(":id")
   find(@Param("id") id: string) {
-    return this.boardService.find(id);
+    console.log(typeof id);
+    return this.boardService.find(Number(id));
   }
 
   @Post()
   create(@Body() data) {
-    return "create";
+    return this.boardService.create(data);
   }
 
   @Put(":id")
-  update(@Param("id") id: number, @Body() data) {
-    return "update";
+  update(@Param("id") id: string, @Body() data) {
+    return this.boardService.update(Number(id), data);
   }
 
   @Delete(":id")
-  remove(@Param("id") id: number) {
-    return "delete";
+  remove(@Param("id") id: string) {
+    return this.boardService.delete(Number(id));
   }
 }
