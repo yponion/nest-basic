@@ -14,23 +14,6 @@ export class BoardService {
     @InjectRepository(Board)
     private boardRepository: Repository<Board>,
   ) { }
-  private boards = [
-    {
-      id: 1,
-      title: "hello world",
-      content: "Content 1",
-    },
-    {
-      id: 2,
-      title: "hello world 2",
-      content: "Content 2",
-    },
-    {
-      id: 3,
-      title: "hello world 3",
-      content: "Content 3",
-    },
-  ];
 
   async findAll() {
     return this.boardRepository.find();
@@ -50,26 +33,18 @@ export class BoardService {
   }
 
   async update(id: number, data: UpdateBoardDto) {
-    const board = await this.boardRepository.findOneBy({ id });
+    const board = await this.getBoardById(id);
     if (!board) throw new HttpException("NotFound", HttpStatus.NOT_FOUND);
     return this.boardRepository.update(id, { ...data });
   }
 
-  delete(id: number) {
-    const index = this.getBoardId(id);
-    if (id > -1) {
-      const deleteBoard = this.boards[index];
-      this.boards.splice(index, 1);
-      return deleteBoard;
-    }
-    return null;
+  async delete(id: number) {
+    const board = await this.getBoardById(id);
+    if (!board) throw new HttpException("NotFound", HttpStatus.NOT_FOUND);
+    return this.boardRepository.remove(board);
   }
 
-  getBoardId(id: number) {
-    return this.boards.findIndex((board) => board.id === id);
-  }
-
-  getNextId() {
-    return this.boards.sort((a, b) => b.id - a.id)[0].id + 1;
+  async getBoardById(id: number) {
+    return this.boardRepository.findOneBy({ id });
   }
 }
