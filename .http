@@ -44,3 +44,16 @@ GET http://localhost:3000
 # 유저 리스트 가져오기
 
 GET http://localhost:3000/user
+
+###
+
+# 유저 회원 가입
+
+POST http://localhost:3000/user
+content-type: application/json
+
+{
+    "username":"user01ID",
+    "password":"user01PW",
+    "name":"user01"
+}
