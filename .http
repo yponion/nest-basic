@@ -21,11 +21,12 @@ content-type: application/json
 ###
 
 # 게시글 수정
-PUT http://localhost:3000/board/3
+PUT http://localhost:3000/board/1
 content-type: application/json
 
 {
-    "title":"df"
+    "title":"1번 게시글",
+    "content":"1번 게시글 내용"
 }
 
 ###
