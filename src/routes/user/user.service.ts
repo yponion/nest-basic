@@ -28,6 +28,10 @@ export class UserService {
     });
   }
 
+  async getUserByUsername(username: string) {
+    return this.userRepository.findOneBy({ username });
+  }
+
   async login(data: LoginUserDto) {
     const { username, password } = data;
     const user = await this.userRepository.findOneBy({
