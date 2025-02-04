@@ -57,3 +57,16 @@ content-type: application/json
     "password":"user02PW",
     "name":"user02"
 }
+
+
+###
+
+# 유저 로그인
+
+POST http://localhost:3000/user/login
+content-type: application/json
+
+{
+    "username":"user02ID",
+    "password":"user02PW"
+}
