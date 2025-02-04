@@ -6,12 +6,16 @@ import { Repository } from "typeorm";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { hash, compare } from "bcrypt";
 import { LoginUserDto } from "./dto/login-user.dto";
+import * as jwt from "jsonwebtoken";
+import { ConfigService } from "@nestjs/config";
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,
+
+    private configService: ConfigService,
   ) { }
 
   async createUser(data: CreateUserDto) {
@@ -33,7 +37,21 @@ export class UserService {
     const match = await compare(password, user.password);
     if (!match)
       throw new HttpException("UNAUTHORIZED", HttpStatus.UNAUTHORIZED);
-    return user;
+
+    const payload = {
+      username,
+      name: user.name,
+    };
+
+    const secretKey = this.configService.get<string>("SECRET_KEY");
+    if (!secretKey)
+      throw new Error("SECRET_KEY is not defined in environment variables");
+
+    const accessToken = jwt.sign(payload, secretKey, {
+      expiresIn: "1h",
+    });
+
+    return { accessToken };
   }
 
   async getUsers() {
