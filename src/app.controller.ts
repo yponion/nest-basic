@@ -13,13 +13,16 @@ import {
 import { AppService } from "./app.service";
 import { Ip } from "./decorators/ip.decorator";
 import { ConfigService } from "@nestjs/config";
-import { AuthGuard } from "@nestjs/passport";
+import { LocalAuthGuard } from "./auth/local-auth.guard";
+import { AuthService } from "./auth/auth.service";
+import { JwtAuthGuard } from "./auth/jwt-auth.guard";
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
     private readonly configService: ConfigService,
+    private readonly authService: AuthService,
   ) { }
 
   // private readonly logger = new Logger(AppController.name);
@@ -50,9 +53,15 @@ export class AppController {
     return `${name} hello`;
   }
 
-  @UseGuards(AuthGuard("local"))
+  @UseGuards(LocalAuthGuard)
   @Post("login")
   login(@Request() req) {
+    return this.authService.login(req.user);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get("info")
+  me(@Request() req) {
     return req.user;
   }
 }

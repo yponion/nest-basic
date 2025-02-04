@@ -82,3 +82,11 @@ content-type: application/json
     "username":"user02ID",
     "password":"user02PW"
 }
+
+###
+
+# 유저 info
+
+GET http://localhost:3000/info
+content-type: application/application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIwMklEIiwibmFtZSI6InVzZXIwMiIsImlhdCI6MTczODY5MTA4MCwiZXhwIjoxNzM4Njk0NjgwfQ.TdDjefVe9rVxPgxiHIZKWwLUeJfSAUNls27EWa4Nc7Y
