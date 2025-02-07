@@ -11,7 +11,7 @@ GET http://localhost:3000/board/1
 # 게시글 쓰기
 POST http://localhost:3000/board
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ1c2VyMDJJRCIsIm5hbWUiOiJ1c2VyMDIiLCJpYXQiOjE3Mzg5NjY5NzQsImV4cCI6MTczODk3MDU3NH0.JZUOD8-utdG1G2yD2Aa__IDIydJ_du-RcDA6kMZF8oM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ1c2VyMDNJRCIsIm5hbWUiOiJ1c2VyMDMiLCJpYXQiOjE3Mzg5Njg3OTEsImV4cCI6MTczODk3MjM5MX0.Qt_buJW3cYQRfYBFCoH9DKyseRxga8dkmLYnhqNA51o
 
 {
     "title": "게시글 작성",
@@ -21,18 +21,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hb
 ###
 
 # 게시글 수정
-PUT http://localhost:3000/board/1
+PUT http://localhost:3000/board/2
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ1c2VyMDNJRCIsIm5hbWUiOiJ1c2VyMDMiLCJpYXQiOjE3Mzg5Njg3OTEsImV4cCI6MTczODk3MjM5MX0.Qt_buJW3cYQRfYBFCoH9DKyseRxga8dkmLYnhqNA51o
 
 {
-    "title":"1번 게시글",
-    "content":"1번 게시글 내용"
+    "title":"게시글 수정",
+    "content":"게시글 내용 수정"
 }
 
 ###
 
 # 게시글 삭제
-DELETE http://localhost:3000/board/3
+DELETE http://localhost:3000/board/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ1c2VyMDNJRCIsIm5hbWUiOiJ1c2VyMDMiLCJpYXQiOjE3Mzg5Njg3OTEsImV4cCI6MTczODk3MjM5MX0.Qt_buJW3cYQRfYBFCoH9DKyseRxga8dkmLYnhqNA51o
 
 ###
 
@@ -53,9 +55,9 @@ POST http://localhost:3000/user
 content-type: application/json
 
 {
-    "username":"user02ID",
-    "password":"user02PW",
-    "name":"user02"
+    "username":"user03ID",
+    "password":"user03PW",
+    "name":"user03"
 }
 
 
@@ -79,8 +81,8 @@ POST http://localhost:3000/login
 content-type: application/json
 
 {
-    "username":"user02ID",
-    "password":"user02PW"
+    "username":"user03ID",
+    "password":"user03PW"
 }
 
 ###
@@ -89,4 +91,4 @@ content-type: application/json
 
 GET http://localhost:3000/info
 content-type: application/application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIwMklEIiwibmFtZSI6InVzZXIwMiIsImlhdCI6MTczODk2NjkzMywiZXhwIjoxNzM4OTcwNTMzfQ.YBLucyONX_vAikSXuBZHUko6knBitZFF2y4Qm7P3NPQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ1c2VyMDNJRCIsIm5hbWUiOiJ1c2VyMDMiLCJpYXQiOjE3Mzg5Njg3OTEsImV4cCI6MTczODk3MjM5MX0.Qt_buJW3cYQRfYBFCoH9DKyseRxga8dkmLYnhqNA51o
