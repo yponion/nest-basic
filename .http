@@ -11,9 +11,9 @@ GET http://localhost:3000/board/1
 # 게시글 쓰기
 POST http://localhost:3000/board
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ1c2VyMDJJRCIsIm5hbWUiOiJ1c2VyMDIiLCJpYXQiOjE3Mzg5NjY5NzQsImV4cCI6MTczODk3MDU3NH0.JZUOD8-utdG1G2yD2Aa__IDIydJ_du-RcDA6kMZF8oM
 
 {
-    "userId": 1,
     "title": "게시글 작성",
     "content": "게시글 작성 테스트"
 }
@@ -89,4 +89,4 @@ content-type: application/json
 
 GET http://localhost:3000/info
 content-type: application/application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIwMklEIiwibmFtZSI6InVzZXIwMiIsImlhdCI6MTczODY5MTA4MCwiZXhwIjoxNzM4Njk0NjgwfQ.TdDjefVe9rVxPgxiHIZKWwLUeJfSAUNls27EWa4Nc7Y
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIwMklEIiwibmFtZSI6InVzZXIwMiIsImlhdCI6MTczODk2NjkzMywiZXhwIjoxNzM4OTcwNTMzfQ.YBLucyONX_vAikSXuBZHUko6knBitZFF2y4Qm7P3NPQ
